@@ -1,11 +1,11 @@
 # Documentación: Sistema de Agendamiento de Citas Médicas - Reto Indra
 
-<p style="text-align:center;">Un asegurado desea agendar una cita médica, ingresa a la aplicación y escoge el centro médico,
+Un asegurado desea agendar una cita médica, ingresa a la aplicación y escoge el centro médico,
 la especialidad, el médico y la fecha y hora de un listado que muestra la aplicación web. Luego
 presiona un botón “Agendar” y los datos son enviados a una aplicación backend que le devuelve
 un mensaje diciéndole que el agendamiento está en proceso.
 Esta aplicación funciona tanto para Perú como Chile. El procesamiento de agendamiento es
-distinto por país</p>
+distinto por país
 
 [![Diagrama.png](https://i.ibb.co/s9ZFb0qR/Diagrama.png)](https://ibb.co/chjNkGQ3)
 
