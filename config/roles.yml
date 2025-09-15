@@ -1,0 +1,47 @@
+- Effect: Allow
+  Action:
+    - dynamodb:PutItem
+    - dynamodb:GetItem
+    - dynamodb:UpdateItem
+    - dynamodb:DeleteItem
+    - dynamodb:Scan
+    - dynamodb:Query
+    - dynamodb:BatchGetItem
+    - dynamodb:BatchWriteItem
+    - dynamodb:ListTables
+  Resource:
+    - arn:aws:dynamodb:${self:provider.region}:*:table/Appointments
+    - arn:aws:dynamodb:${self:provider.region}:*:table/Appointments/index/insuredIdIndex
+- Effect: Allow
+  Action:
+    - sns:Publish
+    - sns:Subscribe
+    - sns:Unsubscribe
+    - sns:GetTopicAttributes
+    - sns:SetTopicAttributes
+    - sns:ListSubscriptionsByTopic
+  Resource:
+    - arn:aws:sns:${self:provider.region}:*:appointment-created-topic
+- Effect: Allow
+  Action:
+    - sqs:SendMessage
+    - sqs:ReceiveMessage
+    - sqs:DeleteMessage
+    - sqs:GetQueueAttributes
+    - sqs:SetQueueAttributes
+    - sqs:ListQueues
+  Resource:
+    - arn:aws:sqs:${self:provider.region}:*:appointment-created-queue-pe
+    - arn:aws:sqs:${self:provider.region}:*:appointment-created-queue-cl
+    - arn:aws:sqs:${self:provider.region}:*:appointment-created-queue-completed
+- Effect: Allow
+  Action:
+    - rds:DescribeDBInstances
+    - rds:Connect
+  Resource:
+    - arn:aws:rds:${self:provider.region}:*:db:mysql-pe
+    - arn:aws:rds:${self:provider.region}:*:db:mysql-cl
+- Effect: Allow
+  Action:
+    - events:PutEvents
+  Resource: arn:aws:events:${self:provider.region}:*:event-bus/appointment-confirm-bus

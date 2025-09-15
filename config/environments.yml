@@ -1,0 +1,5 @@
+DYNAMODB_APPOINTMENTS: Appointments
+SNS_APPOINTMENT_CREATED_TOPIC_ARN: arn:aws:sns:${self:provider.region}:${aws:accountId}:appointment-created-topic
+EVENT_BUS_NAME: "appointment-confirm-bus"
+EVENT_SOURCE: "com.reto.appointment"
+EVENT_DETAIL_TYPE: "AppointmentCreated"

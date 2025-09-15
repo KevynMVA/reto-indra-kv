@@ -1,0 +1,28 @@
+service: reto-indra-kv
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-1
+  stage: dev
+  iamRoleStatements: ${file(./config/roles.yml)}
+        
+  environment: ${file(./config/environments.yml)}
+
+functions: ${file(./config/functions.yml)}
+
+resources:
+  Resources: ${file(./config/resources.yml)}
+
+plugins:
+  - serverless-auto-swagger
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+package:
+  patterns:
+    - 'swagger/**'
+    - 'dist/**'            
+    - 'package.json'       
+    - '!node_modules/**'   
+    - '!test/**'

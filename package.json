@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc -p .",
     "deploy": "npm run build && sls deploy --verbose",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "keywords": [],
   "author": "",
